@@ -51,12 +51,15 @@
 /datum/reagent/nutriment/proc/adjust_nutrition(var/mob/living/carbon/M, var/alien, var/removed)
 	var/nut_removed = removed
 	var/hyd_removed = removed
-	if(alien == IS_OLDUNATHI) //Literally nothing from nutriments
-		return
-	if(alien == IS_UNATHI)
-		removed *= 0.1 // Unathi get most of their nutrition from meat.
-	if(alien == IS_CARNIVORE)
-		removed *= 0.1 // Technically a copy of IS_UNATHI, and likely spaghetti code, but whatever.
+	switch(alien)
+		if(IS_RESOMI) // Resomi get a little bit more nutrition from meat, a bit less from other stuff to compensate
+			removed *= 0.65
+		if(IS_OLDUNATHI) //Literally nothing from nutriments
+			return
+		if(IS_UNATHI)
+			removed *= 0.1 // Unathi get most of their nutrition from meat.
+		if(IS_CARNIVORE)
+			removed *= 0.1 // Technically a copy of IS_UNATHI, and likely spaghetti code, but whatever.
 	if(nutriment_factor)
 		M.adjust_nutrition(nutriment_factor * nut_removed) // For hunger and fatness
 	if(hydration_factor)
@@ -91,6 +94,7 @@
 
 /datum/reagent/nutriment/protein/adjust_nutrition(var/mob/living/carbon/M, var/alien, var/removed)
 	switch(alien)
+		if(IS_RESOMI) removed *= 1.55
 		if(IS_UNATHI) removed *= 2.25
 		if(IS_CARNIVORE) removed *= 2.25
 		if(IS_OLDUNATHI) removed *= 3.5
