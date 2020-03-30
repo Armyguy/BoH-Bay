@@ -176,6 +176,12 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
+"az" = (
+/obj/item/weapon/material/shard,
+/obj/item/ammo_casing/pistol/magnum/used,
+/mob/living/simple_animal/hostile/syndicate/melee,
+/turf/simulated/floor/tiled,
+/area/casino/casino_security)
 "aA" = (
 /obj/machinery/computer/modular{
 	dir = 8;
@@ -206,6 +212,7 @@
 	icon_state = "chair_preview";
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/syndicate/melee,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
 "aF" = (
@@ -214,8 +221,15 @@
 	icon_state = "chair_preview"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
+/mob/living/simple_animal/hostile/syndicate/melee,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
+"aG" = (
+/obj/random/coin,
+/obj/random/coin,
+/obj/item/weapon/storage/bag/cash,
+/turf/simulated/floor/plating,
+/area/casino/casino_security)
 "aH" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -251,6 +265,10 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
+"aK" = (
+/mob/living/simple_animal/hostile/retaliate/malf_drone/syndi,
+/turf/space,
+/area/space)
 "aL" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/device/radio,
@@ -287,6 +305,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
+"aP" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_maintenance)
+"aQ" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled,
+/area/casino/casino_crew_bunk)
+"aR" = (
+/obj/item/ammo_casing/rifle/used,
+/obj/item/ammo_casing/rifle/used,
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled/white,
+/area/casino/casino_crew_bathroom)
+"aS" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_storage)
 "aT" = (
 /obj/effect/wingrille_spawn/reinforced,
 /turf/simulated/floor/plating,
@@ -342,6 +379,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
+"aX" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_crew_atmos)
+"aY" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_crew_atmos)
+"aZ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_crew_atmos)
 "ba" = (
 /obj/structure/closet/emcloset,
 /obj/machinery/light{
@@ -411,6 +469,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/casino/casino_bridge)
+"bg" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_bow)
 "bh" = (
 /turf/simulated/floor/tiled/dark,
 /area/casino/casino_maintenance)
@@ -504,6 +572,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
+"bx" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/plating,
+/area/casino/casino_bow)
+"by" = (
+/mob/living/simple_animal/hostile/syndicate/ranged,
+/turf/simulated/floor/carpet,
+/area/casino/casino_mainfloor)
 "bz" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -638,6 +714,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
+"bH" = (
+/obj/effect/decal/cleanable/generic,
+/mob/living/simple_animal/hostile/syndicate/ranged,
+/turf/simulated/floor/carpet,
+/area/casino/casino_mainfloor)
 "bI" = (
 /obj/structure/fireaxecabinet{
 	pixel_y = 30
@@ -748,6 +829,7 @@
 /area/casino/casino_security)
 "bQ" = (
 /obj/structure/bed/chair,
+/mob/living/simple_animal/hostile/viscerator,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "bR" = (
@@ -777,6 +859,14 @@
 "bW" = (
 /turf/simulated/floor/plating,
 /area/casino/casino_maintenance)
+"bX" = (
+/mob/living/simple_animal/hostile/syndicate/melee,
+/turf/simulated/floor/carpet,
+/area/casino/casino_mainfloor)
+"bY" = (
+/mob/living/simple_animal/hostile/syndicate/ranged,
+/turf/simulated/floor/tiled,
+/area/casino/casino_mainfloor)
 "bZ" = (
 /turf/simulated/wall,
 /area/casino/casino_maintenance)
@@ -1011,6 +1101,10 @@
 "cF" = (
 /turf/simulated/floor/tiled,
 /area/casino/casino_hangar)
+"cG" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled,
+/area/casino/casino_hangar)
 "cH" = (
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
@@ -1053,6 +1147,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bathroom)
+"cK" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled,
+/area/casino/casino_hangar)
 "cL" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1085,6 +1187,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
+"cR" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled,
+/area/casino/casino_kitchen)
 "cS" = (
 /obj/structure/bed/chair{
 	dir = 4;
@@ -1148,6 +1254,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
+"da" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8";
+	pixel_x = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/wood,
+/area/casino/casino_private_vip)
 "db" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -1217,6 +1339,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_security)
+"dk" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/wood,
+/area/casino/casino_private2)
+"dl" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/wood,
+/area/casino/casino_private_vip)
 "dm" = (
 /obj/machinery/computer/modular{
 	dir = 8;
@@ -1280,6 +1414,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_crew_bathroom)
+"dv" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/wood,
+/area/casino/casino_private1)
+"dw" = (
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/tiled,
+/area/casino/casino_bridge)
 "dx" = (
 /turf/simulated/wall,
 /area/casino/casino_storage)
@@ -1716,13 +1858,6 @@
 /obj/random/coin,
 /obj/random/ammo,
 /obj/random/ammo,
-/turf/simulated/floor/plating,
-/area/casino/casino_security)
-"eE" = (
-/obj/random/coin,
-/obj/random/coin,
-/obj/item/weapon/storage/bag/cash,
-/mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/plating,
 /area/casino/casino_security)
 "eF" = (
@@ -2772,26 +2907,26 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hq" = (
-/obj/machinery/cooker/cereal,
+/obj/machinery/appliance/mixer/cereal,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hr" = (
-/obj/machinery/cooker/candy,
+/obj/machinery/appliance/mixer/candy,
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hs" = (
-/obj/machinery/cooker/fryer,
+/obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "ht" = (
-/obj/machinery/cooker/oven,
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hu" = (
-/obj/machinery/cooker/grill,
+/obj/machinery/appliance/grill,
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "hv" = (
@@ -3766,7 +3901,7 @@
 "jR" = (
 /obj/structure/table/marble,
 /obj/item/weapon/reagent_containers/food/drinks/bottle/gin,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/tequilla{
+/obj/item/weapon/reagent_containers/food/drinks/bottle/tequila{
 	pixel_x = -10
 	},
 /obj/item/weapon/reagent_containers/food/drinks/bottle/vodka{
@@ -4267,21 +4402,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/casino/casino_private_vip)
-"li" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/casino/casino_private_vip)
 "lj" = (
 /obj/machinery/media/jukebox,
 /obj/structure/cable{
@@ -4660,13 +4780,6 @@
 "mb" = (
 /obj/structure/bed/chair/comfy/red{
 	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/casino/casino_private_vip)
-"mc" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/casino/casino_private_vip)
@@ -5413,11 +5526,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_mainfloor)
-"Bb" = (
-/obj/item/weapon/material/shard,
-/obj/item/ammo_casing/pistol/magnum/used,
-/turf/simulated/floor/tiled,
-/area/casino/casino_security)
 "Bc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/marble,
@@ -5430,11 +5538,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_cantina)
-"Cb" = (
-/obj/item/ammo_casing/rifle/used,
-/obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/tiled/white,
-/area/casino/casino_crew_bathroom)
 "Cc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9133,7 +9236,7 @@ aa
 aa
 aa
 aa
-aa
+aK
 aa
 aa
 aa
@@ -9481,7 +9584,7 @@ aa
 aa
 aa
 aa
-aa
+aK
 aa
 aa
 aa
@@ -9842,7 +9945,7 @@ ap
 ax
 ax
 ax
-ap
+dw
 aV
 am
 bj
@@ -9880,7 +9983,7 @@ ku
 kD
 kP
 ld
-lA
+aZ
 kC
 mk
 mG
@@ -9940,7 +10043,7 @@ aa
 aa
 an
 aq
-ap
+dw
 ap
 aE
 aJ
@@ -10055,13 +10158,13 @@ bV
 cp
 cI
 cZ
-Cb
+aR
 cH
 cH
 cp
 eL
 bW
-bW
+aP
 bW
 fP
 gh
@@ -10078,7 +10181,7 @@ iW
 iV
 jy
 jN
-jN
+aX
 jN
 jN
 jN
@@ -10255,7 +10358,7 @@ wb
 am
 bn
 Ob
-bW
+aP
 bW
 bz
 bW
@@ -10273,7 +10376,7 @@ gB
 gB
 bW
 gB
-bW
+aP
 hS
 ij
 iz
@@ -10286,7 +10389,7 @@ kb
 km
 km
 kE
-kb
+aY
 lf
 lA
 kC
@@ -10348,7 +10451,7 @@ aa
 aa
 am
 Ib
-ap
+dw
 aA
 Kb
 aM
@@ -10599,7 +10702,7 @@ lY
 mp
 kC
 Rc
-mH
+bx
 kC
 kC
 kC
@@ -10783,7 +10886,7 @@ gj
 sc
 fQ
 hq
-hw
+cR
 hw
 im
 iD
@@ -10797,7 +10900,7 @@ ga
 ky
 kG
 kR
-li
+da
 lF
 ma
 mr
@@ -10873,7 +10976,7 @@ cN
 df
 dx
 dP
-ek
+aS
 ek
 eQ
 bZ
@@ -10971,7 +11074,7 @@ aB
 bC
 ca
 cv
-cN
+aQ
 dg
 dx
 dQ
@@ -11179,7 +11282,7 @@ cN
 dh
 dx
 dS
-ek
+aS
 ey
 eS
 bZ
@@ -11207,7 +11310,7 @@ Kc
 kR
 lk
 lJ
-mc
+dl
 mt
 kC
 mR
@@ -11294,7 +11397,7 @@ xc
 fQ
 hv
 hw
-hw
+cR
 hw
 hK
 hw
@@ -11404,7 +11507,7 @@ ga
 js
 jG
 gG
-gG
+bY
 kr
 jI
 Mc
@@ -11475,7 +11578,7 @@ aa
 aa
 aa
 aa
-aa
+aK
 aa
 bq
 bG
@@ -11513,7 +11616,7 @@ kJ
 kT
 lm
 lL
-lL
+dv
 mv
 kC
 Rc
@@ -11618,7 +11721,7 @@ lL
 lL
 lL
 kC
-mR
+bg
 mH
 kC
 nf
@@ -11890,7 +11993,7 @@ bK
 ce
 cB
 cS
-Bb
+az
 dC
 bq
 en
@@ -11996,7 +12099,7 @@ dm
 dD
 bq
 en
-eE
+aG
 en
 bq
 Fb
@@ -12124,7 +12227,7 @@ ge
 kJ
 kV
 lr
-lO
+dk
 lO
 lO
 kC
@@ -12195,7 +12298,7 @@ bq
 bN
 cg
 bq
-cF
+cG
 dn
 dE
 dn
@@ -12214,7 +12317,7 @@ hz
 hO
 ge
 ge
-hN
+bH
 ge
 hO
 ge
@@ -12321,7 +12424,7 @@ iS
 ga
 id
 hj
-ge
+bX
 hA
 ga
 id
@@ -12434,7 +12537,7 @@ lQ
 Vc
 Wc
 kC
-mR
+bg
 mU
 kC
 kC
@@ -12619,7 +12722,7 @@ fL
 gf
 ge
 hy
-ge
+by
 ge
 ge
 ge
@@ -12710,7 +12813,7 @@ dp
 Tb
 dY
 dp
-eG
+cK
 cF
 br
 fz
@@ -12724,7 +12827,7 @@ fx
 ge
 hN
 hN
-ge
+bX
 ge
 jd
 hB
@@ -13112,7 +13215,7 @@ aa
 aa
 bs
 br
-cF
+cG
 cF
 dr
 dr
@@ -13429,6 +13532,7 @@ aa
 aa
 aa
 aa
+aK
 aa
 aa
 aa
@@ -13440,8 +13544,7 @@ aa
 aa
 aa
 aa
-aa
-aa
+aK
 aa
 aa
 aa

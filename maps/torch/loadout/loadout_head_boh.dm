@@ -11,6 +11,7 @@
 	cover += /obj/item/clothing/head/solgov/utility/army
 	cover += /obj/item/clothing/head/solgov/utility/army/urban
 	cover += /obj/item/clothing/head/solgov/utility/army/tan
+	cover += /obj/item/clothing/head/solgov/utility/fleet/marine
 	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(cover)
 
 /datum/gear/head/self_protection_helmet
@@ -18,3 +19,14 @@
 	path = /obj/item/clothing/head/hardhat/self_protection
 	cost = 2
 	allowed_branches = CIVILIAN_BRANCHES
+
+/datum/gear/head/fleetcap
+	display_name = "fleet cap"
+	path = /obj/item/clothing/head/soft/solgov/fleet
+	cost = 0
+	allowed_branches = NT_BRANCHES
+
+/datum/gear/head/corpsecberet
+	display_name = "corporate security beret"
+	path = /obj/item/clothing/head/beret/guard
+	allowed_branches = list(/datum/mil_branch/fleet, /datum/mil_branch/private_security)

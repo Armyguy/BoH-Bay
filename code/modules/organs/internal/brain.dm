@@ -205,6 +205,8 @@
 
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
 	set waitfor = 0
+	if(damage >= 50) //should only really be triggered by executions or very big ouch weapons
+		damage *= 2
 	..()
 	if(damage >= 10) //This probably won't be triggered by oxyloss or mercury. Probably.
 		var/damage_secondary = damage * 0.20
@@ -212,7 +214,8 @@
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
 		owner.Paralyse(damage_secondary)
-		owner.Weaken(round(damage, 1))
+		owner.Weaken(round((damage_secondary * 3), 1))
+		owner.adjustOxyLoss(damage)
 		if(prob(30))
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
@@ -266,3 +269,12 @@
 
 /obj/item/organ/internal/brain/get_mechanical_assisted_descriptor()
 	return "machine-interface [name]"
+
+/obj/item/organ/internal/pariah_brain
+	name = "brain remnants"
+	desc = "Did someone tread on this? It looks useless for cloning or cyborgification."
+	organ_tag = BP_BRAIN
+	parent_organ = BP_HEAD
+	icon = 'icons/obj/alien.dmi'
+	icon_state = "chitin"
+	vital = 1

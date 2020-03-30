@@ -740,7 +740,7 @@
 	icon_state = "construction"
 
 /area/vacant/armory
-	name = "\improper Vacant Armory"
+	name = "\improper Auxiliary Armory"
 	icon_state = "Tactical"
 
 /area/vacant/cabin
@@ -772,7 +772,7 @@
 
 /area/vacant/prototype/engine
 	name = "\improper Prototype Fusion Reactor Chamber"
-	icon_state = "firingrange"
+	icon_state = "toxstorage"
 
 /area/vacant/cargo
 	name = "\improper Requisitions Office"
@@ -919,6 +919,11 @@
 	sound_env = LARGE_SOFTFLOOR
 	req_access = list(access_bar)
 
+// Crew areas
+/area/crew_quarters/bar/storage
+	name = "\improper Service Storage"
+	req_access = list(access_bar, access_kitchen)
+
 /area/crew_quarters/cryolocker
 	name = "\improper Cryogenic Storage Wardrobe"
 	icon_state = "locker"
@@ -950,7 +955,7 @@
 
 /area/crew_quarters/galleybackroom
 	name = "\improper Galley Cold Storage"
-	icon_state = "kitchen"
+	icon_state = "locker"
 	req_access = list(access_kitchen)
 
 /area/crew_quarters/commissary
@@ -1064,11 +1069,12 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	req_access = list(access_brig)
 
-/area/security/brig/chamber
-	name = "\improper Permanent Brig Equipment"
-	icon_state = "toxstorage"
+/area/security/brig/psionic
+	name = "\improper Psionic Holding"
+	icon_state = "misclab"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	req_access = list(access_brig)
+	ambience = list('sound/ambience/spookyspace1.ogg')
 
 // AI
 /area/turret_protected/ai_foyer
@@ -1079,7 +1085,13 @@
 
 /area/turret_protected/ai_outer_chamber
 	name = "\improper Outer AI Chamber"
-	icon_state = "ai_chamber"
+	icon_state = "checkpoint"
+	sound_env = SMALL_ENCLOSED
+	req_access = list(access_ai_upload)
+
+/area/turret_protected/ai_data_chamber
+	name = "\improper AI Data Chamber"
+	icon_state = "ai_foyer"
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_ai_upload)
 
@@ -1129,6 +1141,15 @@
 	icon_state = "chapel"
 	sound_env = SMALL_ENCLOSED
 	req_access = list(access_crematorium)
+
+/area/medical/lounge
+	name = "\improper Staff Lounge"
+	icon_state = "locker"
+	req_access = list(access_medical_equip)
+
+/area/medical/reslab
+	name = "\improper Resuscitation Lab"
+	req_access = list(access_surgery)
 
 /area/medical/virology
 	name = "\improper Virology (decomissioned)"

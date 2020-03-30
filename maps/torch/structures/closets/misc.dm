@@ -64,7 +64,7 @@
 	return list(
 		/obj/item/device/flash,
 		/obj/item/clothing/accessory/storage/holster/armpit,
-		/obj/item/weapon/gun/energy/gun/secure/corporate,
+		/obj/item/gunbox/bodyguard,
 		/obj/item/weapon/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
 		/obj/item/clothing/under/rank/internalaffairs/plain/nt,
@@ -72,6 +72,8 @@
 		/obj/item/clothing/gloves/color/black,
 		/obj/item/clothing/head/helmet/nt/guard,
 		/obj/item/clothing/suit/armor/pcarrier/medium/nt,
+		/obj/item/clothing/accessory/armguards,
+		/obj/item/clothing/accessory/legguards,
 		/obj/item/clothing/glasses/sunglasses/big,
 		/obj/item/clothing/accessory/badge/nanotrasen,
 		/obj/item/device/radio/headset/heads/torchcorp,
@@ -127,7 +129,7 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
 	return list(
-			/obj/item/clothing/accessory/storage/holster/thigh = 2,
+			/obj/item/clothing/accessory/storage/holster/thigh = 3,
 			/obj/item/weapon/gun/energy/gun/secure = 3,
 	)
 
@@ -143,8 +145,7 @@
 /obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
 	return list(
 		/obj/item/weapon/storage/belt/holster/general = 3,
-		/obj/item/weapon/gun/energy/gun/secure = 3,
-		/obj/item/weapon/gun/energy/gun/small/secure = 1,
+		/obj/item/weapon/gun/energy/gun/secure = 3
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/PPE

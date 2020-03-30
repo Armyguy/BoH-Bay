@@ -23,7 +23,8 @@
 
 	#include "datums/uniforms.dm"
 	#include "datums/uniforms_expedition.dm"
-	#include "datums/uniforms_fleet.dm"
+	//#include "datums/uniforms_fleet.dm"
+	#include "datums/uniforms_exp_fleet.dm"
 	#include "datums/uniforms_marine-corps.dm"
 	#include "datums/reports/command.dm"
 	#include "datums/reports/corporate.dm"
@@ -55,6 +56,7 @@
 	#include "items/manuals.dm"
 	#include "items/stamps.dm"
 	#include "items/uniform_vendor.dm"
+	#include "items/uniform_vendor_boh.dm"
 	#include "items/rigs.dm"
 	#include "items/solbanner.dm"
 	#include "items/explo_shotgun.dm"
@@ -74,7 +76,9 @@
 	#include "items/clothing/terran-head.dm"
 	#include "items/clothing/terran-suit.dm"
 	#include "items/clothing/terran-under.dm"
+	#include "items/clothing/boh_under.dm"
 	#include "items/clothing/boh_accessory.dm"
+	#include "items/clothing/boh_clothing.dm"
 
 	#include "items/weapon/storage/wallets.dm"
 

@@ -119,8 +119,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if(SPECIES_HUMAN, SPECIES_SKRELL)	//humanoid bodytypes
-			species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC) //skrell/humans/machines can wear each other's suits
+		if(SPECIES_HUMAN,SPECIES_SKRELL)	//humanoid bodytypes
+			species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_IPC) //skrell/humans/machines can wear each other's suits
 		else
 			species_restricted = list(target_species)
 
@@ -136,9 +136,9 @@
 	//Set species_restricted list
 	switch(target_species)
 		if(SPECIES_SKRELL)
-			species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC) //skrell helmets fit humans too
+			species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_IPC) //skrell helmets fit humans too
 		if(SPECIES_HUMAN)
-			species_restricted = list(SPECIES_HUMAN, SPECIES_IPC) //human helmets fit IPCs too
+			species_restricted = list(SPECIES_HUMAN,SPECIES_IPC) //human helmets fit IPCs too
 		else
 			species_restricted = list(target_species)
 
@@ -192,6 +192,10 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 	var/volume_multiplier = 1
+	sprite_sheets = list(
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_ears_resomi.dmi'
+		)
+
 
 /obj/item/clothing/ears/update_clothing_icon()
 	if (ismob(src.loc))
@@ -232,6 +236,7 @@ BLIND     // can't see anything
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_eyes_vox.dmi',
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_eyes_vox_armalis.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_eyes_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_eyes_resomi.dmi',
 	)
 
 /obj/item/clothing/glasses/get_icon_state(mob/user_mob, slot)
@@ -262,12 +267,13 @@ BLIND     // can't see anything
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude",SPECIES_NABBER, SPECIES_UNATHI,SPECIES_VOX, SPECIES_VOX_ARMALIS)
+	species_restricted = list("exclude",SPECIES_NABBER,SPECIES_UNATHI,SPECIES_VOX,SPECIES_VOX_ARMALIS,SPECIES_OLDUNATHI)
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_hands_vox.dmi',
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_hands_vox_armalis.dmi',
 		SPECIES_NABBER = 'icons/mob/species/nabber/onmob_hands_gas.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_hands_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_hands_resomi.dmi',
 		)
 	blood_overlay_type = "bloodyhands"
 
@@ -317,10 +323,11 @@ BLIND     // can't see anything
 		return
 
 	clipped = 1
-	name = "modified [name]"
+	name = "unathi [name]"
 	desc = "[desc]<br>They have been modified to accommodate a different shape."
 	if("exclude" in species_restricted)
 		species_restricted -= SPECIES_UNATHI
+		species_restricted -= SPECIES_OLDUNATHI
 	return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user)
@@ -382,6 +389,7 @@ BLIND     // can't see anything
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_head_vox.dmi',
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_head_vox_armalis.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_head_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_head_resomi.dmi',
 		)
 	blood_overlay_type = "helmetblood"
 
@@ -494,6 +502,7 @@ BLIND     // can't see anything
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_mask_vox.dmi',
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_mask_vox_armalis.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_mask_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_mask_resomi.dmi',
 		)
 
 	var/voicechange = 0
@@ -572,11 +581,12 @@ BLIND     // can't see anything
 	slot_flags = SLOT_FEET
 	permeability_coefficient = 0.50
 	force = 2
-	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_UNATHI, SPECIES_VOX, SPECIES_VOX_ARMALIS)
+	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_UNATHI, SPECIES_VOX, SPECIES_VOX_ARMALIS, SPECIES_RESOMI)
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_feet_vox.dmi',
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_feet_vox_armalis.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_feet_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_feet_resomi.dmi',
 		)
 	blood_overlay_type = "shoeblood"
 	var/overshoes = 0
@@ -738,6 +748,7 @@ BLIND     // can't see anything
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_suit_vox_armalis.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_suit_unathi.dmi',
 		SPECIES_NABBER = 'icons/mob/species/nabber/onmob_suit_gas.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_suit_resomi.dmi',
 		SPECIES_MANTID_ALATE = 'icons/mob/species/mantid/onmob_suit_alate.dmi',
 		SPECIES_MANTID_GYNE = 'icons/mob/species/mantid/onmob_suit_gyne.dmi'
 		)
@@ -795,6 +806,7 @@ BLIND     // can't see anything
 		SPECIES_VOX_ARMALIS = 'icons/mob/species/vox/onmob_under_vox_armalis.dmi',
 		SPECIES_NABBER = 'icons/mob/species/nabber/onmob_under_gas.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/generated/onmob_under_unathi.dmi',
+		SPECIES_RESOMI = 'icons/mob/species/resomi/onmob_under_resomi.dmi',
 		SPECIES_MANTID_ALATE = 'icons/mob/species/mantid/onmob_under_alate.dmi',
 		SPECIES_MANTID_GYNE = 'icons/mob/species/mantid/onmob_under_gyne.dmi'
 	)
@@ -1052,5 +1064,5 @@ BLIND     // can't see anything
 	icon = 'icons/obj/clothing/obj_hands_ring.dmi'
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
-	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA)
+	species_restricted = list("exclude",SPECIES_NABBER,SPECIES_DIONA)
 	var/undergloves = 1

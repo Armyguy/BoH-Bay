@@ -85,6 +85,37 @@
 		update_icon()
 
 /////////
+// Enfluroprobine
+/////////
+
+/datum/reagent/enfluroprobine
+	name = "Enfluroprobine"
+	description = "A light substance that probably wouldn't taste too great."
+	taste_description = "rage"
+	reagent_state = LIQUID
+	color = "#a62c2b"
+	metabolism = REM * 1
+	value = 2
+
+//vial
+/obj/item/weapon/reagent_containers/glass/beaker/vial/enfluroprobine
+	name = "odd vial"
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/enfluroprobine, 30)
+		update_icon()
+
+/////////
+// VB Vial
+/////////
+/obj/item/weapon/reagent_containers/glass/beaker/vial/vecuronium_bromide
+	name = "odd vial"
+	New()
+		..()
+		reagents.add_reagent(/datum/reagent/vecuronium_bromide, 30)
+		update_icon()
+
+/////////
 // Coffee OLD
 /////////
 /datum/reagent/drink/coffee/old
@@ -97,3 +128,24 @@
 
 	glass_name = "coffee"
 	glass_desc = "This smells funny, and seems incredibly hot."
+
+/////////
+// SF4
+/////////
+/datum/reagent/acid/sf4
+	name = "Sulfur Tetrafluoride"
+	description = "A highly corrosive gas."
+	taste_description = "rotten eggs"
+	color = "#debd45"
+	touch_met = 100
+	power = 85
+	meltdose = 5 // How much is needed to melt
+	max_damage = 65
+
+//hf
+/datum/reagent/acid/hf
+	name = "Hydrofluoric acid"
+	description = "A highly corrosive acid."
+	taste_description = "acid"
+	reagent_state = LIQUID
+	color = "#619494"

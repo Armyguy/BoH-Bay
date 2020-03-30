@@ -536,7 +536,6 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		return 1
 
 	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
-	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
 	if(config.welder_vision)
 		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
@@ -612,11 +611,11 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 	var/list/holding = list(target.get_active_hand() = 60, target.get_inactive_hand() = 30)
 
-	var/skill_mod = 10 * attacker.get_skill_difference(SKILL_COMBAT, target)
+	var/skill_mod = 5 * attacker.get_skill_difference(SKILL_COMBAT, target)
 	var/state_mod = attacker.melee_accuracy_mods() - target.melee_accuracy_mods()
-	var/push_mod = min(max(1 + attacker.get_skill_difference(SKILL_COMBAT, target), 1), 3)
+	var/push_mod = min(max(1 + attacker.get_skill_difference(SKILL_COMBAT, target), 1), 2)
 	if(target.a_intent == I_HELP)
-		state_mod -= 30
+		state_mod -= 15
 	//Handle unintended consequences
 	for(var/obj/item/I in holding)
 		var/hurt_prob = max(holding[I] - 2*skill_mod + state_mod, 0)
@@ -784,9 +783,9 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /datum/species/proc/skills_from_age(age)	//Converts an age into a skill point allocation modifier. Can be used to give skill point bonuses/penalities not depending on job.
 	switch(age)
-		if(0 to 22) 	. = -4
-		if(23 to 30) 	. = 0
-		if(31 to 45)	. = 4
+		if(0 to 22) 	. = 8
+		if(23 to 30) 	. = 8
+		if(31 to 45)	. = 8
 		else			. = 8
 
 /datum/species/proc/post_organ_rejuvenate(var/obj/item/organ/org, var/mob/living/carbon/human/H)

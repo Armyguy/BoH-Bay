@@ -22,7 +22,7 @@
 	ask_verb = "sings"
 	exclaim_verb = "sings"
 	colour = "alien"
-	key = "z"
+	key = "v"
 	flags = RESTRICTED | HIVEMIND
 	shorthand = "N/A"
 	hidden_from_codex = TRUE
@@ -110,7 +110,7 @@
 	name = LANGUAGE_ALIUM
 	colour = "cult"
 	speech_verb = "hisses"
-	key = "c"
+	key = "a"
 	flags = RESTRICTED
 	syllables = list("qy","bok","mok","yok","dy","gly","ryl","byl","dok","forbici", "tarem", "n'ath", "reth", "sh'yro", "eth", "d'raggathnor","niii",
 	"d'rekkathnor", "khari'd", "gual'te", "ki","ki","ki","ki","ya","ta","wej","nym","assah","qwssa","nieasl","qyno","shaffar",

@@ -40,18 +40,22 @@ var/list/department_radio_keys = list(
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply",
+	  ":к" = "right ear",	".к" = "right ear",
+	  ":д" = "left ear",	".д" = "left ear",
+	  ":ш" = "intercom",	".ш" = "intercom",
+	  ":р" = "department",	".р" = "department",
+	  ":с" = "Command",		".с" = "Command",
+	  ":т" = "Science",		".т" = "Science",
+	  ":ь" = "Medical",		".ь" = "Medical",
+	  ":у" = "Engineering",	".у" = "Engineering",
+	  ":ы" = "Security",	".ы" = "Security",
+	  ":ц" = "whisper",		".ц" = "whisper",
+	  ":е" = "Mercenary",	".е" = "Mercenary",
+	  ":г" = "Supply",		".г" = "Supply",
+	  ":м" = "Service",		".м" = "Service",
+	  ":з" = "AI Private",	".з" = "AI Private",
+	  ":я" = "Entertainment",".я" = "Entertainment",
+	  ":н" = "Exploration",		".н" = "Exploration",
 )
 
 
@@ -97,30 +101,40 @@ proc/get_radio_key_from_channel(var/channel)
 //Returns 1 if a speech problem was applied, 0 otherwise
 /mob/living/proc/handle_speech_problems(var/list/message_data)
 	var/message = message_data[1]
-	var/verb = message_data[2]
+	var/initial_verb = message_data[2]
 
-	. = 0
+	. = FALSE
 
-	if((MUTATION_HULK in mutations) && health >= 25 && length(message))
-		message = "[uppertext(message)]!!!"
-		verb = pick("yells","roars","hollers")
-		message_data[3] = 0
-		. = 1
-	else if(slurring)
-		message = slur(message)
-		verb = pick("slobbers","slurs")
-		. = 1
-	else if(stuttering)
-		message = NewStutter(message)
-		verb = pick("stammers","stutters")
-		. = 1
-	else if(has_chem_effect(CE_SQUEAKY, 1))
-		message = "<font face = 'Comic Sans MS'>[message]</font>"
-		verb = "squeaks"
-		. = 1
+	var/list/final_verbs = list()
+
+	if(length(message))
+		if((MUTATION_HULK in mutations) && health >= 25)
+			message = "<b>[uppertext(message)]!!!</b>"
+			final_verbs += pick("yells","roars","hollers")
+			message_data[3] = 0
+			. = TRUE
+		if(stuttering)
+			message = NewStutter(message, FALSE, 10 + stuttering)
+			final_verbs += pick("stammers","stutters")
+			. = TRUE
+		if(slurring)
+			if(confused) //Slurring + Confused might as well be drunk af
+				message = Intoxicated(message,10 + slurring)
+				final_verbs += pick("garbles","jumbles","fumbles")
+				. = TRUE
+			else
+				message = slur(message,10 + slurring)
+				final_verbs += pick("slobbers","slurs")
+				. = TRUE
+		if(has_chem_effect(CE_SQUEAKY, 1))
+			message = "<font face = 'Comic Sans MS'>[message]</font>"
+			final_verbs += "squeaks"
+			. = TRUE
 
 	message_data[1] = message
-	message_data[2] = verb
+	message_data[2] = english_list(final_verbs,initial_verb)
+
+	return .
 
 /mob/living/proc/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
 	if(message_mode == "intercom")
@@ -148,7 +162,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	message = html_decode(message)
 
-	var/end_char = copytext(message, lentext(message), lentext(message) + 1)
+	var/end_char = copytext(message, length(message), length(message) + 1)
 	if(!(end_char in list(".", "?", "!", "-", "~")))
 		message += "."
 
@@ -315,7 +329,16 @@ proc/get_radio_key_from_channel(var/channel)
 		eavesdroping_obj -= listening_obj
 		for(var/mob/M in eavesdroping)
 			if(M)
-				M.hear_say(stars(message), verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
+				var/mob/living/carbon/human/H
+				var/temp
+				//for resomi
+				if(ishuman(M))
+					H = M
+					temp = (H.get_species() == SPECIES_RESOMI ? message : stars(message))
+				else
+					temp = stars(message)
+				show_image(M, speech_bubble)
+				M.hear_say(temp, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 				if(M.client)
 					speech_bubble_recipients |= M.client
 

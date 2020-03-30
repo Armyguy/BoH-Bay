@@ -18,7 +18,19 @@
 
 /datum/gear/head/skrell_helmet
 	allowed_roles = ARMORED_ROLES
+	allowed_branches = TACTICOOL_BRANCHES
+	whitelisted = list(SPECIES_SKRELL)
+	
+/datum/gear/uniform/skrell_bodysuit
+	allowed_roles = ARMORED_ROLES
+	allowed_branches = TACTICOOL_BRANCHES
+	whitelisted = list(SPECIES_SKRELL)
 
+/datum/gear/accessory/skrell_badge
+	allowed_roles = ARMORED_ROLES
+	allowed_branches = TACTICOOL_BRANCHES
+	whitelisted = list(SPECIES_SKRELL)
+	
 /datum/gear/uniform/harness
 	allowed_branches = null
 
@@ -27,6 +39,13 @@
 	display_name = "Cultural Exchange patch"
 	path = /obj/item/clothing/accessory/solgov/cultex_patch
 	description = "A shoulder patch representing the Expeditionary Corps."
-	allowed_branches = list(/datum/mil_branch/expeditionary_corps)
+	allowed_branches = NT_BRANCHES
 	whitelisted = list(SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_IPC)
+	sort_category = "Xenowear"
+
+/datum/gear/accessory/nabber_gloves
+	display_name = "GAS Insuls"
+	path = /obj/item/clothing/gloves/nabber
+	description = "A set of insulated gloves meant for GAS."
+	whitelisted = list(SPECIES_NABBER)
 	sort_category = "Xenowear"

@@ -100,6 +100,8 @@ var/list/gamemode_cache = list()
 
 	var/forbid_singulo_possession = 0
 
+	var/rounds_until_hard_restart = -1
+
 	//game_options.txt configs
 
 	var/health_threshold_dead = -100
@@ -208,6 +210,10 @@ var/list/gamemode_cache = list()
 	var/ghosts_can_possess_animals = 0
 	var/delist_when_no_admins = FALSE
 
+	//API Rate limiting
+	var/api_rate_limit = 50
+	var/list/api_rate_limit_whitelist = list()
+
 	var/allow_map_switching = 0 // Whether map switching is allowed
 	var/auto_map_vote = 0 // Automatically call a map vote at end of round and switch to the selected map
 	var/wait_for_sigusr1_reboot = 0 // Don't allow reboot unless it was caused by SIGUSR1
@@ -234,7 +240,19 @@ var/list/gamemode_cache = list()
 	var/max_acts_per_interval = 140 //Number of actions per interval permitted for spam protection.
 	var/act_interval = 0.1 SECONDS //Interval for spam prevention.
 
+	var/job_whitelist = FALSE //Do we use the job whitelist? Set to false so devs don't have to set config options.
+	var/panic_bunker = FALSE //is the panic bunker enabled?
+	var/panic_bunker_message = "Sorry! The panic bunker is enabled. Please head to our discord to get yourself added to the panic bunker bypass."
+	var/delist_population = 50 //What population do we automatically take ourselves off to hub at?
+	var/pb_population = 70 //What population do we automatically engage the panic bunker at?
 	var/announce_gamemode = FALSE //Do we annouce the game mode or not?
+
+	// fail2topic settings
+	var/fail2topic_rate_limit = 5 SECONDS
+	var/fail2topic_max_fails = 5
+	var/fail2topic_rule_name = "_DD_Fail2topic"
+	var/fail2topic_enabled = FALSE
+
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -716,6 +734,12 @@ var/list/gamemode_cache = list()
 				if("delist_when_no_admins")
 					config.delist_when_no_admins = TRUE
 
+				if("api_rate_limit")
+					config.api_rate_limit = text2num(value)
+
+				if("api_rate_limit_whitelist")
+					config.api_rate_limit_whitelist = splittext(value, ";")
+
 				if("map_switching")
 					config.allow_map_switching = 1
 
@@ -767,9 +791,31 @@ var/list/gamemode_cache = list()
 					config.max_acts_per_interval = text2num(value)
 				if ("act_interval")
 					config.act_interval = text2num(value) SECONDS
+				if("delist_population")
+					config.delist_population = value
+				if("pb_population")
+					config.pb_population = value
 
 				if ("announce_gamemode")
 					config.announce_gamemode = TRUE
+
+				if ("panic_bunker")
+					config.panic_bunker = TRUE
+
+				if("rounds_until_hard_restart")
+					config.rounds_until_hard_restart = text2num(value)
+
+				if ("fail2topic_rate_limit")
+					fail2topic_rate_limit = text2num(value) SECONDS
+				if ("fail2topic_max_fails")
+					fail2topic_max_fails = text2num(value)
+				if ("fail2topic_rule_name")
+					fail2topic_rule_name = value
+				if ("fail2topic_enabled")
+					fail2topic_enabled = text2num(value)
+
+				if ("job_whitelist")
+					config.job_whitelist = TRUE
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

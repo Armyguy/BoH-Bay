@@ -26,6 +26,12 @@
 #define IS_NABBER  6
 #define IS_MANTID  7
 #define IS_SERGAL  8
+#define IS_OLDUNATHI 9
+#define IS_RESOMI 10
+
+//These are similar to the above, used to make species into carnivores
+#define IS_CARNIVORE 1
+#define IS_HERBIVORE 2
 
 #define CE_STABLE        "stable"       // Inaprovaline
 #define CE_ANTIBIOTIC    "antibiotic"   // Spaceacilin

@@ -16,6 +16,7 @@
 	if(alien != IS_DIONA)
 		M.add_chemical_effect(CE_STABLE)
 		M.add_chemical_effect(CE_PAINKILLER, 10)
+		M.add_chemical_effect(CE_BLOODRESTORE, 1)
 
 /datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_SLOWDOWN, 1)
@@ -189,6 +190,9 @@
 				if(!BP_IS_ROBOTIC(I))
 					I.heal_damage(20*removed)
 
+/datum/reagent/cryoxadone/affect_tray(var/obj/machinery/portable_atmospherics/hydroponics/H, var/datum/seed/seed, var/removed)
+	H.toxins -= removed*3
+	return
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
@@ -216,6 +220,11 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					I.heal_damage(30*removed)
+
+/datum/reagent/clonexadone/affect_tray(var/obj/machinery/portable_atmospherics/hydroponics/H, var/datum/seed/seed, var/removed)
+	H.toxins -= removed*5
+	H.mutation_level -= removed*3
+	return
 
 /datum/reagent/nanitefluid
 	name = "Nanite Fluid"
@@ -495,6 +504,21 @@
 /datum/reagent/hyperzine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
+	if(alien == IS_RESOMI)  //resomi are too fast
+		if(prob(5))
+			to_chat(M, pick(SPAN_NOTICE("The head aches from sounds..."), SPAN_NOTICE("My ears are plugged up...")))
+			M.stun_effect_act(0, 10, BP_HEAD, "headache")
+		if(prob(5) && !M.stat) //don't do that as dead person, please
+			M.custom_emote(VISIBLE_MESSAGE, pick("visibly vibrates.", "twitches violently.", "looses grasp on consciousness."))
+		if(prob(10))
+			to_chat(M, SPAN_DANGER("My heart gonna break out from the chest!"))
+			M.stun_effect_act(0, 15, BP_CHEST, "heart damage") //a small pain without damage
+			if(prob(15))
+				for(var/obj/item/organ/internal/heart/H in M.internal_organs)
+					H.damage += 1 // actual damage!
+		M.hallucination(100, 51) //sounds are a bit louder
+		M.add_chemical_effect(CE_PULSE, 4)
+		M.add_chemical_effect(CE_SPEEDBOOST, 0.25) //your buff, my little slowdown(pick(-0.25,-0.8)) c:
 	if(prob(5))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
@@ -904,10 +928,10 @@
 		return
 
 	if(M.chem_doses[type] < 0.2)	//not that effective after initial rush
-		M.add_chemical_effect(CE_PAINKILLER, min(30*volume, 80))
+		M.add_chemical_effect(CE_PAINKILLER, min(30*volume, 60))
 		M.add_chemical_effect(CE_PULSE, 1)
 	else if(M.chem_doses[type] < 1)
-		M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 20))
+		M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 10))
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(M.chem_doses[type] > 10)
 		M.make_jittery(1)

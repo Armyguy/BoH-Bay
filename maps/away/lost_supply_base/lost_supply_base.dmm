@@ -1029,7 +1029,7 @@
 /area/lost_supply_base/common)
 "cz" = (
 /obj/structure/closet/secure_closet/freezer/meat,
-/obj/machinery/cooker/oven,
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
 "cA" = (
@@ -1375,6 +1375,10 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/lost_supply_base/common)
+"dD" = (
+/mob/living/simple_animal/hostile/retaliate/malf_drone/guard,
+/turf/space,
+/area/space)
 "dE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -6921,7 +6925,7 @@ aa
 aa
 aa
 aa
-aa
+dD
 aa
 aa
 aq
@@ -7145,7 +7149,7 @@ aG
 aA
 aa
 aa
-aa
+dD
 aa
 aa
 aa
@@ -7267,7 +7271,7 @@ bq
 fZ
 bR
 aa
-aa
+dD
 aa
 aa
 aa
@@ -8853,7 +8857,7 @@ aa
 aa
 aa
 aa
-aa
+dD
 aa
 aa
 ac
@@ -10098,7 +10102,7 @@ aa
 aa
 aa
 aq
-aa
+dD
 aa
 aa
 aa
@@ -10209,7 +10213,7 @@ aa
 aa
 aa
 aa
-aa
+dD
 aa
 aa
 aa

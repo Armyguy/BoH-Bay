@@ -12,7 +12,7 @@
 
 /datum/species/custom
 	name = SPECIES_CUSTOM
-	name_plural = "Custom"
+	name_plural = SPECIES_CUSTOM
 	selects_bodytype = TRUE
 	base_species = SPECIES_HUMAN
 	limb_blend = ICON_MULTIPLY
@@ -20,9 +20,10 @@
 
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
 
-	description = "This is a custom species where you can assign various species traits to them as you wish, to \
-	create a (hopefully) balanced species. You will see the options to customize them on the Genemods tab once \
-	you select and set this species as your species. Please look at the Genemods tab if you select this species."
+	description = "This is a genemodded species - either human or some of established ones. It can also work as \
+	subspecies or hybrid of some sorts. Here you can assign various gene traits to them as you wish, to create \
+	a (hopefully) balanced genemodder. You will see the options to customize them on the Genemods tab once \
+	you select and set this species as your species, so please, look into here if you select this."
 
 	min_age = 18
 	max_age = 200
@@ -59,9 +60,88 @@
 			CULTURE_SKRELL_TALUM,
 			CULTURE_SKRELL_RASKINTA,
 			CULTURE_UNATHI,
+		),
+		TAG_FACTION = list(
+			FACTION_SOL_CENTRAL,
+			FACTION_FLEET,
+			FACTION_CORPORATE,
+			FACTION_INDIE_CONFED,
+			FACTION_EXPEDITIONARY,
+			FACTION_SPACECOPS,
+			FACTION_NANOTRASEN,
+			FACTION_XYNERGY,
+			FACTION_HEPHAESTUS,
+			FACTION_FREETRADE,
+			FACTION_PCRC,
+			FACTION_DAIS,
+			FACTION_OTHER,
+			FACTION_SKRELL_QERRVOAL,
+			FACTION_SKRELL_QALAOA,
+			FACTION_SKRELL_YIITALANA,
+			FACTION_SKRELL_KRRIGLI,
+			FACTION_SKRELL_QONPRRI,
+			FACTION_UNATHI_POLAR,
+			FACTION_UNATHI_DESERT,
+			FACTION_UNATHI_SAVANNAH,
+			FACTION_UNATHI_DIAMOND_PEAK,
+			FACTION_UNATHI_SALT_SWAMP,
+			FACTION_UNATHI_YEOSA,
+			FACTION_SERGAL_GOLD_RING,
+			FACTION_SERGAL_SHIGU,
+			FACTION_SERGAL_REONO
+		),
+		TAG_RELIGION = list(
+			RELIGION_OTHER,
+			RELIGION_JUDAISM,
+			RELIGION_HINDUISM,
+			RELIGION_BUDDHISM,
+			RELIGION_JAINISM,
+			RELIGION_SIKHISM,
+			RELIGION_ISLAM,
+			RELIGION_CHRISTIANITY,
+			RELIGION_BAHAI_FAITH,
+			RELIGION_AGNOSTICISM,
+			RELIGION_DEISM,
+			RELIGION_ATHEISM,
+			RELIGION_THELEMA,
+			RELIGION_SPIRITUALISM,
+			RELIGION_SHINTO,
+			RELIGION_TAOISM,
+			RELIGION_SERGAL_ANIMISM,
+			RELIGION_SERGAL_GOLD_RING,
+			RELIGION_UNATHI_VINE,
+			RELIGION_UNATHI_PRECURSOR,
+			RELIGION_UNATHI_STRATAGEM,
+			RELIGION_UNATHI_LIGHTS
+		),		
+		TAG_HOMEWORLD = list(
+			HOME_SYSTEM_MARS,
+			HOME_SYSTEM_EARTH,
+			HOME_SYSTEM_LUNA,
+			HOME_SYSTEM_VENUS,
+			HOME_SYSTEM_CERES,
+			HOME_SYSTEM_PLUTO,
+			HOME_SYSTEM_TAU_CETI,
+			HOME_SYSTEM_HELIOS,
+			HOME_SYSTEM_TERRA,
+			HOME_SYSTEM_TERSTEN,
+			HOME_SYSTEM_LORRIMAN,
+			HOME_SYSTEM_CINU,
+			HOME_SYSTEM_YUKLID,
+			HOME_SYSTEM_LORDANIA,
+			HOME_SYSTEM_KINGSTON,
+			HOME_SYSTEM_GAIA,
+			HOME_SYSTEM_MAGNITKA,
+			HOME_SYSTEM_QERRBALAK,
+			HOME_SYSTEM_MOGHES,
+			HOME_SYSTEM_TALAMIRA,
+			HOME_SYSTEM_ROASORA,
+			HOME_SYSTEM_MITORQI,
+			HOME_SYSTEM_SKRELLSPACE,
+			HOME_SYSTEM_ROOT
 		)
-	)
-
+	)				
+	
 /datum/species/custom/get_bodytype()
 	var/datum/species/real = all_species[base_species]
 	return real.name

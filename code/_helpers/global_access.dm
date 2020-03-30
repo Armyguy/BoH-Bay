@@ -143,6 +143,8 @@
 			return global.SSvines;
 		if("SSvote")
 			return global.SSvote;
+		if("SSvueui")
+			return global.SSvueui;
 		if("SSwebhooks")
 			return global.SSwebhooks;
 		if("SSxenoarch")
@@ -465,6 +467,10 @@
 			return global.gear_datums;
 		if("gear_tweak_free_color_choice_")
 			return global.gear_tweak_free_color_choice_;
+		if("gear_tweak_free_desc")
+			return global.gear_tweak_free_desc;
+		if("gear_tweak_free_name")
+			return global.gear_tweak_free_name;
 		if("gender_datums")
 			return global.gender_datums;
 		if("ghost_darkness_images")
@@ -523,8 +529,6 @@
 			return global.last_chew;
 		if("last_message_id")
 			return global.last_message_id;
-		if("last_round_duration")
-			return global.last_round_duration;
 		if("light_overlay_cache")
 			return global.light_overlay_cache;
 		if("lighting_overlays_initialised")
@@ -935,7 +939,7 @@
 			return global.z_levels;
 		if("zone_blocked")
 			return global.zone_blocked;
-		
+
 /proc/writeglobal(which, newval)
 	switch(which)
 		if("ANTAG_FREQS")
@@ -1080,6 +1084,8 @@
 			global.SSvines=newval;
 		if("SSvote")
 			global.SSvote=newval;
+		if("SSvueui")
+			global.SSvueui=newval;
 		if("SSwebhooks")
 			global.SSwebhooks=newval;
 		if("SSxenoarch")
@@ -1402,6 +1408,10 @@
 			global.gear_datums=newval;
 		if("gear_tweak_free_color_choice_")
 			global.gear_tweak_free_color_choice_=newval;
+		if("gear_tweak_free_desc")
+			global.gear_tweak_free_desc=newval;
+		if("gear_tweak_free_name")
+			global.gear_tweak_free_name=newval;
 		if("gender_datums")
 			global.gender_datums=newval;
 		if("ghost_darkness_images")
@@ -1460,8 +1470,6 @@
 			global.last_chew=newval;
 		if("last_message_id")
 			global.last_message_id=newval;
-		if("last_round_duration")
-			global.last_round_duration=newval;
 		if("light_overlay_cache")
 			global.light_overlay_cache=newval;
 		if("lighting_overlays_initialised")
@@ -1872,7 +1880,7 @@
 			global.z_levels=newval;
 		if("zone_blocked")
 			global.zone_blocked=newval;
-		
+
 /var/list/_all_globals=list(
 	"ANTAG_FREQS",
 	"BSACooldown",
@@ -1945,6 +1953,7 @@
 	"SSturf",
 	"SSvines",
 	"SSvote",
+	"SSvueui",
 	"SSwebhooks",
 	"SSxenoarch",
 	"SSzcopy",
@@ -2106,6 +2115,8 @@
 	"gas_data",
 	"gear_datums",
 	"gear_tweak_free_color_choice_",
+	"gear_tweak_free_desc",
+	"gear_tweak_free_name",
 	"gender_datums",
 	"ghost_darkness_images",
 	"ghost_sightless_images",

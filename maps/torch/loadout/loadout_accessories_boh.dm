@@ -1,3 +1,14 @@
+/datum/gear/accessory/custom_ribbon
+	display_name = "custom ribbon"
+	description = "A military decoration awarded to personnel for significant (or not) accomplishments."
+	path = /obj/item/clothing/accessory/ribbon/solgov/custom
+	cost = 2
+	flags = GEAR_HAS_CUSTOM_SELECTION
+
+/datum/gear/accessory/custom_ribbon/color
+	display_name = "custom ribbon, colorable"
+	path = /obj/item/clothing/accessory/ribbon/solgov/custom/color
+	flags = GEAR_HAS_COLOR_SELECTION | GEAR_HAS_CUSTOM_SELECTION
 
 /datum/gear/accessory/armband_ma
 	display_name = "military police brassard"
@@ -8,11 +19,13 @@
 	display_name = "Marine Corps patch"
 	path = /obj/item/clothing/accessory/solgov/smc_patch
 	allowed_branches = list(/datum/mil_branch/marine_corps)
+	cost = 0
 	whitelisted = list(SPECIES_HUMAN, SPECIES_IPC)
 
 /datum/gear/accessory/smc_patch_xenos
 	display_name = "Marine Corps patch (xenoic division)"
 	path = /obj/item/clothing/accessory/solgov/smc_patch/xeno
+	cost = 0
 	allowed_branches = list(/datum/mil_branch/marine_corps)
 
 /datum/gear/tactical/civ_tag
@@ -28,6 +41,20 @@
 /datum/gear/tactical/med_tag/alt
 	display_name = "Medical tag, alt"
 	path = /obj/item/clothing/accessory/armor/tag/civ/med
+
+/datum/gear/accessory/tags/marine
+	display_name = "dog tags, solar marine corps"
+	description = "Plain identification tags made from a durable metal. This one is issued to marines."
+	path = /obj/item/clothing/accessory/badge/solgov/tags/marine
+	allowed_branches = list(/datum/mil_branch/marine_corps)
+	cost = 0
+
+/datum/gear/accessory/tags/fleet
+	display_name = "dog tags, expeditionary fleet"
+	description = "Plain identification tags made from a durable metal. This one is issued to fleet."
+	path = /obj/item/clothing/accessory/badge/solgov/tags/fleet
+	allowed_branches = list(/datum/mil_branch/fleet)
+	cost = 0
 
 // Separating main's certain armor customization items.
 /datum/gear/tactical/blood_patch
@@ -60,7 +87,7 @@
 	path = /obj/item/clothing/accessory/armor/tag/nt/dagon
 	allowed_branches = NT_BRANCHES
 	cost = 0 // Ditto.
-
+/*
 /// Limb guards
 // Arms
 /datum/gear/tactical/arm_guards
@@ -139,7 +166,7 @@
 /datum/gear/tactical/leg_guards_grey
 	display_name = "grey leg pads"
 	path = /obj/item/clothing/accessory/legguards/light/grey
-
+*/
 // Grey carrier pouches. Only small ones to emulate standard suit/storage behavior.
 /datum/gear/tactical/armor_pouches_grey
 	display_name = "grey armor pouches"
@@ -152,3 +179,41 @@
 	cost = 3
 	allowed_roles = ARMORED_ROLES
 	allowed_branches = TACTICOOL_BRANCHES
+
+// Too lazy to adjust outfit
+/datum/gear/accessory/nt_blaze
+	display_name = "blaze, janitor"
+	path = /obj/item/clothing/accessory/solgov/specialty/janitor
+	allowed_branches = NT_BRANCHES
+	allowed_roles = list(/datum/job/janitor)
+	cost = 0
+
+/datum/gear/accessory/nt_blaze/brig
+	display_name = "blaze, brig chief"
+	path = /obj/item/clothing/accessory/solgov/specialty/brig
+	allowed_roles = list(/datum/job/warden)
+
+/datum/gear/accessory/nt_blaze/detective
+	display_name = "blaze, forenscics"
+	path = /obj/item/clothing/accessory/solgov/specialty/forensic
+	allowed_roles = list(/datum/job/detective)
+
+/datum/gear/accessory/nt_blaze/atmos
+	display_name = "blaze, atmospherics"
+	path = /obj/item/clothing/accessory/solgov/specialty/atmos
+	allowed_roles = ENGINEERING_ROLES
+
+/datum/gear/accessory/nt_blaze/chemist
+	display_name = "blaze, chemist"
+	path = /obj/item/clothing/accessory/solgov/specialty/chemist
+	allowed_roles = list(/datum/job/chemist)
+
+/datum/gear/accessory/nt_blaze/counselor
+	display_name = "blaze, counselor"
+	path = /obj/item/clothing/accessory/solgov/specialty/counselor
+	allowed_roles = list(/datum/job/psychiatrist)
+
+// Alternative cloak
+/datum/gear/clothing/cloak/alt
+	display_name = "cloak, colored (alt)"
+	path = /obj/item/clothing/accessory/cloak/boh
