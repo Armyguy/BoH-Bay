@@ -195,3 +195,9 @@
 #define FACTION_SERGAL_REONO "Reono lands"
 #define RELIGION_SERGAL_ANIMISM "northern religions"
 #define RELIGION_SERGAL_GOLD_RING "religion of Gold ring"
+
+// Seshari culture
+#define CULTURE_TESHARI "The Teshari"
+#define HOME_SYSTEM_TESHARI "The Teshari home star"
+#define FACTION_TESHARI "What ever gov tesh have"
+#define RELIGION_TESHARI "Teshlgion"
